@@ -1,6 +1,7 @@
 import styles from './Layout.module.css'
 
 import Input from "../components/Input"
+import Temp from '../components/Temp'
 
 function Layout() {
     return (
@@ -10,7 +11,7 @@ function Layout() {
             </div>
 
             <div className={styles.container}>
-
+                <Temp />
             </div>
         </>
     )
