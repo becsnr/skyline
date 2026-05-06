@@ -1,9 +1,9 @@
-import Input from "./components/Input"
+import Layout from "./layout/Layout"
 
 function App() {
   return (
     <>
-      <Input />
+      <Layout />
       <h1>SKYLINE</h1>
     </>
   )
