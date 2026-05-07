@@ -2,6 +2,7 @@ import styles from './Layout.module.css'
 
 import Input from "../components/Input"
 import Temp from '../components/Temp'
+import Icon from '../components/Icon'
 
 function Layout() {
     return (
@@ -12,6 +13,7 @@ function Layout() {
 
             <div className={styles.container}>
                 <Temp />
+                <Icon />
             </div>
         </>
     )
