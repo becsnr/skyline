@@ -10,3 +10,10 @@
     font-size: 1.2em;
     letter-spacing: 1px;
 }
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .box {
+        width: 400px;
+    }
+}
