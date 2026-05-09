@@ -1,4 +1,23 @@
-const apiKey = import.meta.env.VITE_HG_KEY;
+const hgKey = import.meta.env.VITE_HG_KEY;
+const openKey = import.meta.env.VITE_OPENWEATHER_KEY;
+
+// LAT/LON
+export async function getCoordsByCity(city) {
+
+    const url = new URL("https://api.openweathermap.org/geo/1.0/direct");
+
+    url.searchParams.set("q", city);
+
+    url.searchParams.set("limit", 1);
+
+    url.searchParams.set("appid", openKey);
+
+    const response = await fetch(url);
+
+    const data = await response.json();
+
+    return data[0];
+}
 
 // CORDENADAS DO USUARIO
 export async function getWeatherByCoords(lat, lon) {
@@ -7,7 +26,7 @@ export async function getWeatherByCoords(lat, lon) {
 
     url.searchParams.set("format", "json-cors");
 
-    url.searchParams.set("key", apiKey);
+    url.searchParams.set("key", hgKey);
 
     url.searchParams.set("lat", lat);
 
@@ -27,11 +46,33 @@ export async function getWeatherByCity(city) {
 
     url.searchParams.set("format", "json-cors")
 
-    url.searchParams.set("key", apiKey);
+    url.searchParams.set("key", hgKey);
 
     url.searchParams.set("city_name", city);
 
     const response = await fetch(url.href);
+
+    const data = await response.json();
+
+    return data;
+}
+
+// PREVISÃO HORÁRIOS
+export async function getHourlyForecast(lat, lon) {
+
+    const url = new URL("https://api.openweathermap.org/data/2.5/forecast");
+
+    url.searchParams.set("lat", lat);
+
+    url.searchParams.set("lon", lon);
+
+    url.searchParams.set("appid", openKey);
+
+    url.searchParams.set("units", "metric");
+
+    url.searchParams.set("lang", "pt_br");
+
+    const response = await fetch(url);
 
     const data = await response.json();
 

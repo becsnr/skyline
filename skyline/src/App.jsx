@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react"
 
-import { getWeatherByCity, getWeatherByCoords } from "./services/weatherApi";
+import { getCoordsByCity, getHourlyForecast, getWeatherByCity, getWeatherByCoords } from "./services/weatherApi";
 
 import Layout from "./layout/Layout"
 
 function App() {
   const [city, setCity] = useState("");
+
   const [weather, setWeather] = useState(null);
+
+  const [hourly, setHourly] = useState([]);
 
   // CIDADE ATUAL DO USUÁRIO
   useEffect(() => {
@@ -16,26 +19,46 @@ function App() {
 
         const lon = position.coords.longitude;
 
-        const data = await getWeatherByCoords(lat, lon);
+        // API HG BRASIL
+        const weatherData = await getWeatherByCoords(lat, lon);
 
-        setWeather(data);
+        setWeather(weatherData);
+
+        console.log(weatherData)
+
+        // API OPENWEATHER
+        const hourlyData = await getHourlyForecast(lat, lon);
+
+        setHourly(hourlyData.list);
       }
     );
   }, []);
 
   async function handleSearch() {
-    console.log("clicou")
 
-    const data = await getWeatherByCity(city);
+    // CIDADE HG BRASIL
+    const weatherData = await getWeatherByCity(city);
 
-    console.log(data)
+    setWeather(weatherData);
 
-    setWeather(data);
+    // GEO OPENWEATHER
+    const coords = await getCoordsByCity(city);
+
+    // HOURLY OPENWEATHER
+    const hourlyData = await getHourlyForecast(coords.lat, coords.lon);
+
+    setHourly(hourlyData.list)
   }
 
   return (
     <>
-      <Layout weather={weather} city={city} setCity={setCity} handleSearch={handleSearch} />
+      <Layout 
+        weather={weather} 
+        city={city} 
+        setCity={setCity} 
+        hourly={hourly}
+        handleSearch={handleSearch} 
+      />
     </>
   )
 }
