@@ -6,13 +6,15 @@ import Icon from '../components/Icon'
 import DaysForecast from '../components/DaysForecast'
 import HourlyForecast from '../components/HourlyForecast'
 
-function Layout() {
+function Layout({ weather }) {
+    if (!weather) return <p>Loading...</p>;
+    
     return (
         <div className={styles.layout}>
 
             <header className={styles.top}>
 
-                <Input />
+                <Input weather={weather} />
 
             </header>
 
@@ -20,16 +22,16 @@ function Layout() {
 
                 <div className={styles.topWeather}>
                     <div className={styles.temp}>
-                        <Temp />
+                        <Temp weather={weather} />
                     </div>
 
                     <div className={styles.icon}>
-                        <Icon />
+                        <Icon weather={weather} />
                     </div>
                 </div>
 
                 <div className={styles.days}>
-                    <DaysForecast />
+                    <DaysForecast weather={weather} />
                 </div>
 
             </section>
