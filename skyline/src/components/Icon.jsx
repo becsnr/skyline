@@ -1,9 +1,11 @@
 import styles from './Icon.module.css'
 
-function Icon() {
+function Icon({ weather }) {
+    const condition = weather.results.condition_slug;
+
     return (
         <div className={styles.container}>
-            icon
+            <img src={`/icons/${condition}.png`} alt="" />
         </div>
     )
 }
