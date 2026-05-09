@@ -17,7 +17,23 @@ export async function getWeatherByCoords(lat, lon) {
 
     const data = await response.json();
 
-    console.log(data);
+    return data;
+}
+
+// PESQUISAR CIDADES
+export async function getWeatherByCity(city) {
+
+    const url = new URL("/weather", "https://api.hgbrasil.com");
+
+    url.searchParams.set("format", "json-cors")
+
+    url.searchParams.set("key", apiKey);
+
+    url.searchParams.set("city_name", city);
+
+    const response = await fetch(url.href);
+
+    const data = await response.json();
 
     return data;
 }

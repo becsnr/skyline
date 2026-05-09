@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
 
-import { getWeatherByCoords } from "./services/weatherApi";
+import { getWeatherByCity, getWeatherByCoords } from "./services/weatherApi";
 
 import Layout from "./layout/Layout"
 
 function App() {
+  const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
 
+  // CIDADE ATUAL DO USUÁRIO
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       async (position) => {
@@ -21,9 +23,19 @@ function App() {
     );
   }, []);
 
+  async function handleSearch() {
+    console.log("clicou")
+
+    const data = await getWeatherByCity(city);
+
+    console.log(data)
+
+    setWeather(data);
+  }
+
   return (
     <>
-      <Layout weather={weather} />
+      <Layout weather={weather} city={city} setCity={setCity} handleSearch={handleSearch} />
     </>
   )
 }

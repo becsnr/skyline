@@ -5,7 +5,7 @@ function Temp({ weather }) {
 
     return (
         <div className={styles.container}>
-            <h1>{weather.results.city.split(",")[0]}</h1>
+            <h1>{weather.results.city_name}</h1>
             <p>{weather.results.temp}C°</p>
             <p>{weather.results.description}</p>
 
