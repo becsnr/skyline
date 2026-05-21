@@ -1,4 +1,22 @@
+.temp h1 {
+    font-size: 1.2rem;
+}
+
+.temp .grau {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.temp .description {
+    font-size: 1.5rem;
+    margin: 5px 0 15px 0;
+} 
+
 .info {
     display: grid;
-    grid-template-columns: repeat(2, 80px);
+    grid-template-columns: repeat(2, 100px);
+}
+
+.info p {
+    margin: 2px;
 }

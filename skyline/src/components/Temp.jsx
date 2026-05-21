@@ -5,9 +5,11 @@ function Temp({ weather }) {
 
     return (
         <div className={styles.container}>
-            <h1>{weather.results.city_name}</h1>
-            <p>{weather.results.temp}C°</p>
-            <p>{weather.results.description}</p>
+            <div className={styles.temp}>
+                <h1>{weather.results.city_name}</h1>
+                <p className={styles.grau}>{weather.results.temp} C°</p>
+                <p className={styles.description}>{weather.results.description}</p>
+            </div>
 
             <div className={styles.info}>
                 <p>Vento</p>
