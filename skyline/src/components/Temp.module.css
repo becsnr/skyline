@@ -14,9 +14,18 @@
 
 .info {
     display: grid;
-    grid-template-columns: repeat(2, 100px);
+    grid-template-columns: repeat(2, 110px);
 }
 
-.info p {
+.info h2, h3 {
     margin: 2px;
+    font-weight: lighter;
+}
+
+.info h2 {
+    font-size: .8rem;
+}
+
+.info h3 {
+    font-size: 1.2rem;
 }

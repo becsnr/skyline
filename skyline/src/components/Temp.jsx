@@ -1,5 +1,7 @@
 import styles from './Temp.module.css'
 
+import { FaWind, FaTint } from 'react-icons/fa'
+
 function Temp({ weather }) {
     if (!weather) return <p>Loading...</p>;
 
@@ -12,10 +14,10 @@ function Temp({ weather }) {
             </div>
 
             <div className={styles.info}>
-                <p>Vento</p>
-                <p>Humidade</p>
-                <p>{weather.results.wind_speedy}</p>
-                <p>{weather.results.humidity}%</p>
+                <h2><FaWind /> Vento</h2>
+                <h2><FaTint /> Humidade</h2>
+                <h3>{weather.results.wind_speedy}</h3>
+                <h3>{weather.results.humidity}%</h3>
             </div>
         </div>
     )
