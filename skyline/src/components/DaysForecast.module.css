@@ -1,5 +1,18 @@
 .container {
-    background-color: blueviolet;
     width: 200px;
-    height: 200px;
+}
+
+.container p {
+    margin: 2px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        gap: 30px;
+
+        width: 470px;
+
+        border: 1px solid;
+    }
 }

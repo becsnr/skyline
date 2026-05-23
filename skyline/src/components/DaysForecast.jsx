@@ -5,7 +5,7 @@ function DaysForecast({ weather }) {
         <div className={styles.container}>
             {weather.map((day) => (
                 <div key={day.dt}>
-                    <p>{day.dt_txt.slice(5,10)}</p>
+                    <p>{new Date(day.dt_txt).toLocaleDateString("pt-br", {weekday: "short" })}</p>
 
                     <p>{Math.round(day.main.temp)}°</p>
 

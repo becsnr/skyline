@@ -1,4 +1,11 @@
 * {
     background-color: #212121;
     color: white;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
 }

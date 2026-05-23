@@ -1,11 +1,18 @@
 .container {
-    background-color: antiquewhite;
     width: 200px;
     height: 200px;
     color: black;
+    overflow: hidden;
 }
 
 .container img {
     width: 200px;
     height: 200px;
+}
+
+@media (max-width: 768px) {
+    .container img {
+        width: 150px;
+        height: 150px;
+    }
 }

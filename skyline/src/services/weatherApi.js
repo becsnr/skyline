@@ -91,7 +91,7 @@ export async function getForecast(lat, lon) {
 
     url.searchParams.set("units", "metric");
 
-    url.searchParams.set("lang", "pt-br");
+    url.searchParams.set("lang", "pt_br");
 
     const response = await fetch(url);
 

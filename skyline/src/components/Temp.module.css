@@ -29,3 +29,25 @@
 .info h3 {
     font-size: 1.2rem;
 }
+
+@media (max-width: 768px) {
+    .temp h1 {
+        font-size: 1rem;
+    }
+
+    .temp .grau {
+        font-size: 1.8rem;
+    }
+
+    .temp .description {
+        font-size: 1rem;
+    } 
+
+    .info {
+        grid-template-columns: repeat(2, 80px);
+    }
+
+    .info h3 {
+        font-size: .8rem;
+    }
+}
