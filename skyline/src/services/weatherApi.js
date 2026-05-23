@@ -78,3 +78,28 @@ export async function getHourlyForecast(lat, lon) {
 
     return data;
 }
+
+// PREVISÃO DIAS
+export async function getForecast(lat, lon) {
+    const url = new URL(`https://api.openweathermap.org/data/2.5/forecast`);
+
+    url.searchParams.set("lat", lat);
+
+    url.searchParams.set("lon", lon);
+
+    url.searchParams.set("appid", openKey);
+
+    url.searchParams.set("units", "metric");
+
+    url.searchParams.set("lang", "pt-br");
+
+    const response = await fetch(url);
+
+    const data = await response.json();
+
+    const dailyForecast = data.list.filter((item) => {
+        return item.dt_txt.includes("12:00:00");
+    });
+
+    return dailyForecast;
+}

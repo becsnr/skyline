@@ -6,7 +6,7 @@ import Icon from '../components/Icon'
 import DaysForecast from '../components/DaysForecast'
 import HourlyForecast from '../components/HourlyForecast'
 
-function Layout({ weather, city, setCity, hourly, handleSearch }) {
+function Layout({ weather, city, setCity, hourly, handleSearch, daysForecast }) {
     if (!weather) return <p>Loading...</p>;
     
     return (
@@ -31,7 +31,7 @@ function Layout({ weather, city, setCity, hourly, handleSearch }) {
                 </div>
 
                 <div className={styles.days}>
-                    <DaysForecast weather={weather} />
+                    <DaysForecast weather={daysForecast} />
                 </div>
 
             </section>

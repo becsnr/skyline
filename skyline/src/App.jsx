@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-import { getCoordsByCity, getHourlyForecast, getWeatherByCity, getWeatherByCoords } from "./services/weatherApi";
+import { getCoordsByCity, getHourlyForecast, getWeatherByCity, getWeatherByCoords, getForecast } from "./services/weatherApi";
 
 import Layout from "./layout/Layout"
 
@@ -10,6 +10,8 @@ function App() {
   const [weather, setWeather] = useState(null);
 
   const [hourly, setHourly] = useState([]);
+
+  const [forecastDays, setForecastDays] = useState([]);
 
   // CIDADE ATUAL DO USUÁRIO
   useEffect(() => {
@@ -24,12 +26,15 @@ function App() {
 
         setWeather(weatherData);
 
-        console.log(weatherData)
-
         // API OPENWEATHER
         const hourlyData = await getHourlyForecast(lat, lon);
 
         setHourly(hourlyData.list);
+
+        // FORECAST DAYS
+        const forecastData = await getForecast(lat, lon);
+
+        setForecastDays(forecastData);
       }
     );
   }, []);
@@ -48,6 +53,11 @@ function App() {
     const hourlyData = await getHourlyForecast(coords.lat, coords.lon);
 
     setHourly(hourlyData.list)
+
+    // FORECAST DAYS
+    const forecastData = await getForecast(coords.lat, coords.lon);
+
+    setForecastDays(forecastData);
   }
 
   return (
@@ -58,6 +68,7 @@ function App() {
         setCity={setCity} 
         hourly={hourly}
         handleSearch={handleSearch} 
+        daysForecast={forecastDays}
       />
     </>
   )
