@@ -1,18 +1,80 @@
 .container {
-    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 400px; 
+    padding: 10px;
+
+    border: 1px solid gray;
+    border-radius: 20px;
+    background-color: #1b1818cd;
 }
 
-.container p {
+.container h2, p {
     margin: 2px;
 }
 
+.card, .day, .icon, .temp, .rain {
+    background-color: transparent;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 80px 80px 1fr 80px;
+    align-items: center;
+    gap: 20px;
+
+    padding: 5px;
+    text-align: center;
+
+    border-bottom: 1px solid #80808075; 
+}
+
+.card:last-child {
+    border-bottom: none;
+}
+
+.day {
+    font-size: 1.1rem;
+    text-transform: capitalize;
+}
+
+.icon {
+    width: 45px;
+
+    justify-self: center;
+}
+
+.temp {
+    font-size: 1.2rem;
+}
+
+.rain {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-self: end;
+}
+
 @media (max-width: 768px) {
-    .container {
-        display: flex;
-        gap: 30px;
 
-        width: 470px;
+    .card {
+        gap: 10px;  
+        /* padding: 6px; */
+    }
 
-        border: 1px solid;
+    .day {
+        font-size: 1rem;
+    }
+
+    .icon {
+        width: 40px;
+
+        margin: 0 auto;
+    }
+
+    .rain {
+        justify-self: center;
     }
 }
