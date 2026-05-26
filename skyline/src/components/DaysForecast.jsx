@@ -15,15 +15,16 @@ function DaysForecast({ weather }) {
 
                     {/* <p>{day.weather[0].description}</p> */}
 
+
+                    <p className={styles.temp}>
+                        {Math.round(day.main.temp)}°
+                    </p>
+                    
                     <img 
                         className={styles.icon} 
                         src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} 
                         alt={day.weather[0].description} 
                     />
-
-                    <p className={styles.temp}>
-                        {Math.round(day.main.temp)}°
-                    </p>
 
                     <p className={styles.rain}>
                         <FaTint />

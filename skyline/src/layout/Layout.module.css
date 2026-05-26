@@ -14,23 +14,24 @@
 
 .middle {
     display: flex;
-    justify-content: column;
-    /* align-items: center;  */
+    flex-direction: row;
+    align-items: flex-start;
     gap: 24px;
+
+    width: 100%;
     /* padding: 20px; */
 }
 
-/* .topWeather {
-    display: flex;
-    gap: 100px;
-} */
+.days {
+    flex-shrink: 0;
+}
 
 .hourly {
     width: 100%;
 }
 
 /* MOBILE */
-@media (max-width: 768px) {
+@media (max-width: 880px) {
     .layout {
         display: grid;
         grid-template-areas: 
@@ -38,7 +39,8 @@
             "weather"
             "hourly"
             "days";
-            padding: 10px;
+        gap: 20px;
+        padding: 10px;
     }
 
     .top {
@@ -48,13 +50,6 @@
     .middle {
         display: contents;
     }
-
-    /* .topWeather {
-        grid-area: weather;
-        display: flex;
-        justify-content: space-around;align-items: center;
-        width: 100%;
-    } */
 
     .hourly {
         grid-area: hourly;
