@@ -14,16 +14,16 @@
 
 .middle {
     display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    gap: 20px;
-    padding: 20px;
+    justify-content: column;
+    /* align-items: center;  */
+    gap: 24px;
+    /* padding: 20px; */
 }
 
-.topWeather {
+/* .topWeather {
     display: flex;
     gap: 100px;
-}
+} */
 
 .hourly {
     width: 100%;
@@ -49,12 +49,12 @@
         display: contents;
     }
 
-    .topWeather {
+    /* .topWeather {
         grid-area: weather;
         display: flex;
         justify-content: space-around;align-items: center;
         width: 100%;
-    }
+    } */
 
     .hourly {
         grid-area: hourly;

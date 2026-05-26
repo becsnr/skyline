@@ -1,53 +1,142 @@
-.temp h1 {
-    font-size: 1.2rem;
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    /* padding: 20px; */
+    box-sizing: border-box;
 }
 
-.temp .grau {
-    font-size: 2.5em;
+.content, div, h1, h2, h3, p, img, svg {
+    background: transparent;
+}
+
+.top {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 20px;
+
+    background-color: #1b1818cd;
+    border-radius: 12px;
+    padding: 30px 40px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    grid-column: 1;
+    width: 100%;
+}
+
+.temp h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+}
+
+.description {
+    font-size: 1rem;
+    color: #8e8e8e;
+    margin: 0 0 16px 0;
+}
+
+.grau {
+    font-size: 3rem;
+    font-weight: 500;
+
     margin: 0;
 }
 
-.temp .description {
-    font-size: 1.5rem;
-    margin: 5px 0 15px 0;
-} 
-
-.info {
-    display: grid;
-    grid-template-columns: repeat(2, 110px);
+.icon {
+    grid-column: 2;
+    grid-row: 1;
 }
 
-.info h2, h3 {
-    margin: 2px;
-    font-weight: lighter;
+.info {
+    grid-column: 1;
+    display: flex;
+    gap: 24px;
+}
+
+.info div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.info div:not(:last-child) {
+    border-right: 1px solid #2d2d2d;
+    padding-right: 24px;
 }
 
 .info h2 {
-    font-size: .8rem;
+    font-size: .9rem;
+    color: #8e8e8e;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .info h3 {
-    font-size: 1.2rem;
+    font-size: .9rem;
+    margin: 0;
+    font-weight: normal;
 }
 
 @media (max-width: 768px) {
+    .top {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+
+        padding: 20px;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
     .temp h1 {
-        font-size: 1rem;
+        font-size: 1.2rem;
+        margin: 0 0 5px 0;
     }
 
-    .temp .grau {
-        font-size: 1.8rem;
+    .grau {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin: 0;
     }
 
-    .temp .description {
-        font-size: 1rem;
-    } 
+    .description {
+        font-size: .9rem;
+        color: #aaa;
+        margin: 5px 0 0;
+    }
+    
+    .icon {
+        position: static;
+    }
 
     .info {
-        grid-template-columns: repeat(2, 80px);
+        align-items: center;
+        gap: 100px;
+
+        border-top: 1px solid #333;
+        padding-top: 15px;
+        margin-top: 0;
     }
 
-    .info h3 {
-        font-size: .8rem;
+    .info div:not(:last-child) {
+        border-right: none;
+        padding-right: 0;
     }
 }
