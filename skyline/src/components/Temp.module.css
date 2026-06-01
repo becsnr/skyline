@@ -1,12 +1,15 @@
 .container {
     width: 100%;
     max-width: 1000px;
+    height: 340px;
     margin: 0 auto;
-    /* padding: 20px; */
+    
+    border: 1px solid gray;
+    border-radius: 20px;
     box-sizing: border-box;
 }
 
-.content, div, h1, h2, h3, p, img, svg {
+.container * {
     background: transparent;
 }
 
@@ -15,6 +18,8 @@
     grid-template-columns: 1fr auto;
     align-items: center;
     gap: 20px;
+
+    height: 338px;
 
     background-color: #1b1818cd;
     border-radius: 12px;
@@ -30,10 +35,22 @@
     width: 100%;
 }
 
+.temp {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 50px;
+}
+
 .temp h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     margin: 0 0 4px 0;
+}
+
+.temp h1 svg {
+    fill: #e95e5e;
+    font-size: .6em;
 }
 
 .description {
@@ -43,7 +60,7 @@
 }
 
 .grau {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 500;
 
     margin: 0;
@@ -58,12 +75,13 @@
     grid-column: 1;
     display: flex;
     gap: 24px;
+    padding-left: 50px;
 }
 
 .info div {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 5px;
 }
 
@@ -73,7 +91,7 @@
 }
 
 .info h2 {
-    font-size: .9rem;
+    font-size: 1rem;
     color: #8e8e8e;
     margin: 0;
 
@@ -83,13 +101,17 @@
 }
 
 .info h3 {
-    font-size: .9rem;
+    font-size: 1rem;
     margin: 0;
     font-weight: normal;
 }
 
 /* MOBILE */
 @media (max-width: 600px) {
+    .container, .top {
+        height: auto;
+    }
+
     .top {
         display: flex;
         flex-direction: column;
@@ -106,13 +128,22 @@
         align-items: flex-start;
     }
 
+    .temp {
+        gap: 10px;
+        padding-left: 0;
+    }
+
     .temp h1 {
-        font-size: 1.2rem;
-        margin: 0 0 5px 0;
+        font-size: 1.3rem;
+        margin: 0;
+    }
+
+    .temp h1 svg {
+        font-size: .7em;
     }
 
     .grau {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         font-weight: bold;
         margin: 0;
     }
@@ -120,7 +151,7 @@
     .description {
         font-size: .9rem;
         color: #aaa;
-        margin: 5px 0 0;
+        margin: 0;
     }
     
     .icon {
@@ -139,5 +170,37 @@
     .info div:not(:last-child) {
         border-right: none;
         padding-right: 0;
+    }
+}
+
+/* TABLET */
+@media (max-width: 1000px) {
+    .top {
+        padding: 25px;
+        gap: 10px;
+    }
+
+    .temp {
+        padding-left: 10px;
+    }
+
+    .temp h1 {
+        font-size: 1.5rem;
+    }
+
+    .grau {
+        font-size: 3rem;
+    }
+
+    .description {
+        font-size: .95rem;
+    }
+
+    .icon img {
+        width: 180px;
+    }
+
+    .info {
+        padding-left: 20px;
     }
 }

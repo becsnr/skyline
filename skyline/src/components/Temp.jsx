@@ -1,6 +1,6 @@
 import styles from './Temp.module.css'
 
-import { FaWind, FaTint } from 'react-icons/fa'
+import { FaMapMarker ,FaWind, FaTint } from 'react-icons/fa'
 
 import Icon from './Icon';
 
@@ -14,7 +14,7 @@ function Temp({ weather }) {
                 <div className={styles.content}>
 
                     <div className={styles.temp}>
-                        <h1>{weather.results.city_name}</h1>
+                        <h1> <FaMapMarker /> {weather.results.city_name}</h1>
                         <p className={styles.description}>{weather.results.description}</p>
                         <p className={styles.grau}>{weather.results.temp} C°</p>
                         
