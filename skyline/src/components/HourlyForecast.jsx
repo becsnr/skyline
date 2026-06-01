@@ -7,19 +7,21 @@ function HourlyForecast({ hourly }) {
 
     return (
         <div className={styles.container}>
-            {hourly.slice(0, 6).map((item) => {
+            {hourly.slice(0, 6).map((item) => (
+                <div key={item.dt} className={styles.card}>
 
-                return (
-                    <div key={item.dt} className={styles.card}>
+                    <p>{item.dt_txt.slice(11, 16)}</p>
 
-                        <p>{item.dt_txt.slice(11, 16)}</p>
+                    <img 
+                        className={styles.icon} 
+                        src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`} 
+                        alt={item.weather[0].description} 
+                    />
 
-                        <p>{Math.round(item.main.temp)}°</p>
+                    <p>{Math.round(item.main.temp)}°</p>
 
-                    </div>
-                )
-                
-            })}
+                </div>
+            ))}
         </div>
     )
 }
