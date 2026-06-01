@@ -11,6 +11,10 @@
     background-color: #1b1818cd;
 }
 
+.container * {
+    background-color: transparent;
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -19,7 +23,6 @@
 
     padding: 10px;
     /* padding-right: 20px; */
-    background-color: transparent;
     border-right: 1px solid #80808075; 
 }
 

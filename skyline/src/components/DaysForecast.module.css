@@ -15,7 +15,7 @@
     margin: 2px;
 }
 
-.card, .day, .icon, .temp, .rain {
+.container * {
     background-color: transparent;
 }
 
