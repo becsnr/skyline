@@ -10,7 +10,7 @@
     height: 200px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
     .container img {
         width: 150px;
         height: 150px;
