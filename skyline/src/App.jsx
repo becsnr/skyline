@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-import { getCoordsByCity, getHourlyForecast, getWeatherByCity, getWeatherByCoords, getForecast } from "./services/weatherApi";
+import { getCoordsByCity, getHourlyForecast, getWeatherByCity, getWeatherByCoords, getForecast, getCitySuggestions } from "./services/weatherApi";
 
 import Layout from "./layout/Layout"
 
@@ -12,6 +12,8 @@ function App() {
   const [hourly, setHourly] = useState([]);
 
   const [forecastDays, setForecastDays] = useState([]);
+
+  const [suggestions, setSuggestions] = useState([]);
 
   // CIDADE ATUAL DO USUÁRIO
   useEffect(() => {
@@ -60,6 +62,20 @@ function App() {
     setForecastDays(forecastData);
   }
 
+  async function handleChange(e) {
+    const value = e.target.value;
+
+    setCity(value);
+
+    if (value.length >= 2) {
+      const cities = await getCitySuggestions(value);
+
+      setSuggestions(cities);
+    } else {
+      setSuggestions([]);
+    }
+  }
+
   return (
     <>
       <Layout 
@@ -68,6 +84,8 @@ function App() {
         setCity={setCity} 
         hourly={hourly}
         handleSearch={handleSearch} 
+        onChange={handleChange}
+        suggestions={suggestions}
         daysForecast={forecastDays}
       />
     </>

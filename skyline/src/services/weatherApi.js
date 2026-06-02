@@ -103,3 +103,18 @@ export async function getForecast(lat, lon) {
 
     return dailyForecast;
 }
+
+// SUGERIR CIDADES NA BUSCA
+export async function getCitySuggestions(city) {
+    const url = new URL("https://api.openweathermap.org/geo/1.0/direct");
+
+    url.searchParams.set("q", city);
+
+    url.searchParams.set("limit", 5);
+
+    url.searchParams.set("appid", openKey);
+
+    const response = await fetch(url);
+
+    return await response.json();
+}

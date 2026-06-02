@@ -5,7 +5,7 @@ import Temp from '../components/Temp'
 import DaysForecast from '../components/DaysForecast'
 import HourlyForecast from '../components/HourlyForecast'
 
-function Layout({ weather, city, setCity, hourly, handleSearch, daysForecast }) {
+function Layout({ weather, city, setCity, hourly, handleSearch, onChange, suggestions, daysForecast }) {
     if (!weather) return <p>Loading...</p>;
     
     return (
@@ -13,7 +13,7 @@ function Layout({ weather, city, setCity, hourly, handleSearch, daysForecast }) 
 
             <header className={styles.top}>
 
-                <Input city={city} setCity={setCity} handleSearch={handleSearch} />
+                <Input city={city} setCity={setCity} handleSearch={handleSearch} onChange={onChange} suggestions={suggestions} />
 
             </header>
 
