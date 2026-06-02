@@ -41,6 +41,7 @@ function App() {
     );
   }, []);
 
+  // BUSCAR CIDADE
   async function handleSearch() {
 
     // CIDADE HG BRASIL
@@ -62,6 +63,7 @@ function App() {
     setForecastDays(forecastData);
   }
 
+  // SUGESTÃO DE CIDADES
   async function handleChange(e) {
     const value = e.target.value;
 
@@ -76,6 +78,21 @@ function App() {
     }
   }
 
+  // SELECIONAR CIDADE NA SUGESTÃO
+  async function handleSelectCity(cityData) {
+    setCity(cityData.name);
+
+    const weatherData = await getWeatherByCity(cityData.name);
+    setWeather(weatherData);
+
+    const hourlyData = await getHourlyForecast(cityData.lat, cityData.lon);
+    setHourly(hourlyData.list);
+
+    const forecastData = await getForecast(cityData.lat, cityData.lon);
+    setForecastDays(forecastData);
+
+    setSuggestions([]);
+  }
   return (
     <>
       <Layout 
@@ -86,6 +103,7 @@ function App() {
         handleSearch={handleSearch} 
         onChange={handleChange}
         suggestions={suggestions}
+        onSelectCity={handleSelectCity}
         daysForecast={forecastDays}
       />
     </>

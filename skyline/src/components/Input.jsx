@@ -2,7 +2,7 @@ import styles from './Input.module.css'
 
 import { FaSearch } from "react-icons/fa";
 
-function Input({ city, handleSearch, onChange, suggestions }) {
+function Input({ city, handleSearch, onChange, suggestions, onSelectCity }) {
     return (
         <section className={styles.container}>
             <div className={styles.searchArea}>
@@ -15,7 +15,7 @@ function Input({ city, handleSearch, onChange, suggestions }) {
                 {suggestions?.length > 0 && (
                     <div className={styles.suggestions}>
                         {suggestions.map((item) => (
-                            <div key={`${item.lat}-${item.lon}`} className={styles.suggestion}>
+                            <div key={`${item.lat}-${item.lon}`} className={styles.suggestion} onClick={() => onSelectCity(item)}>
                                 {item.name}
                                 {item.state ? `, ${item.state}` : ""}
                             </div>
