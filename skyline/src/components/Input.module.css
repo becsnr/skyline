@@ -3,12 +3,16 @@
     flex-direction: row;
     gap: 10px;
 
+    width: 100%;
+    max-width: 650px;
+
     overflow: visible;
 }
 
 .searchArea {
     position: relative;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
 
     overflow: visible;
 }
@@ -19,10 +23,12 @@
     gap: 10px;
 
     width: 100%;
+    max-width: 500px;
     padding: 10px;
 
     border: 1px solid #8080808c;
     border-radius: 15px;
+    box-sizing: border-box;
 }
 
 .inputContainer.hasSuggestions {
@@ -91,11 +97,15 @@ button:hover {
 
 /* MOBILE */
 @media (max-width: 640px) {
+    .container {
+        width: 100%;
+    }
+
     .searchArea {
-        width: 350px;
+        width: 100%;
     }
 
     .box {
-        width: 400px;
+        width: auto;
     }
 }
