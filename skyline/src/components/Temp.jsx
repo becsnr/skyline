@@ -14,9 +14,10 @@ function Temp({ weather }) {
                 <div className={styles.content}>
 
                     <div className={styles.temp}>
-                        <h1> <FaMapMarker /> {weather.results.city_name}</h1>
-                        <p className={styles.description}>{weather.results.description}</p>
-                        <p className={styles.grau}>{weather.results.temp} C°</p>
+                        <h1> <FaMapMarker /> {weather.name}</h1>
+                        <p className={styles.description}>{weather.weather[0].description}</p>
+                        <p className={styles.grau}>{Math.round(weather.main.temp)} C°</p>
+                        <p>Sensação térmica: {Math.round(weather.main.feels_like)}°</p>
                         
                     </div>
 
@@ -28,11 +29,11 @@ function Temp({ weather }) {
                 <div className={styles.info}>
                     <div>
                         <h2><FaWind /> Vento</h2>
-                        <h3>{weather.results.wind_speedy}</h3>
+                        <h3>{weather.wind.speed} km/h</h3>
                     </div>
                     <div>
                         <h2><FaTint /> Humidade</h2>
-                        <h3>{weather.results.humidity}%</h3>
+                        <h3>{weather.main.humidity}%</h3>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,3 @@
-const hgKey = import.meta.env.VITE_HG_KEY;
 const openKey = import.meta.env.VITE_OPENWEATHER_KEY;
 
 // LAT/LON
@@ -22,39 +21,28 @@ export async function getCoordsByCity(city) {
 // CORDENADAS DO USUARIO
 export async function getWeatherByCoords(lat, lon) {
 
-    const url = new URL("/weather", "https://api.hgbrasil.com");
-
-    url.searchParams.set("format", "json-cors");
-
-    url.searchParams.set("key", hgKey);
+    const url = new URL("https://api.openweathermap.org/data/2.5/weather");
 
     url.searchParams.set("lat", lat);
 
     url.searchParams.set("lon", lon);
 
-    const response = await fetch(url.href);
+    url.searchParams.set("appid", openKey);
 
-    const data = await response.json();
+    url.searchParams.set("units", "metric");
 
-    return data;
+    url.searchParams.set("lang", "pt_br");
+
+    const response = await fetch(url);
+
+    return await response.json();
 }
 
 // PESQUISAR CIDADES
 export async function getWeatherByCity(city) {
+    const coords = await getCoordsByCity(city);
 
-    const url = new URL("/weather", "https://api.hgbrasil.com");
-
-    url.searchParams.set("format", "json-cors")
-
-    url.searchParams.set("key", hgKey);
-
-    url.searchParams.set("city_name", city);
-
-    const response = await fetch(url.href);
-
-    const data = await response.json();
-
-    return data;
+    return await getWeatherByCoords(coords.lat, coords.lon);
 }
 
 // PREVISÃO HORÁRIOS

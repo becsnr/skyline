@@ -23,20 +23,17 @@ function App() {
 
         const lon = position.coords.longitude;
 
-        // API HG BRASIL
         const weatherData = await getWeatherByCoords(lat, lon);
-
         setWeather(weatherData);
 
-        // API OPENWEATHER
         const hourlyData = await getHourlyForecast(lat, lon);
-
         setHourly(hourlyData.list);
 
-        // FORECAST DAYS
         const forecastData = await getForecast(lat, lon);
-
         setForecastDays(forecastData);
+      },
+      (error) => {
+        console.error(error);
       }
     );
   }, []);
@@ -44,23 +41,18 @@ function App() {
   // BUSCAR CIDADE
   async function handleSearch() {
 
-    // CIDADE HG BRASIL
     const weatherData = await getWeatherByCity(city);
-
     setWeather(weatherData);
 
-    // GEO OPENWEATHER
     const coords = await getCoordsByCity(city);
 
-    // HOURLY OPENWEATHER
     const hourlyData = await getHourlyForecast(coords.lat, coords.lon);
-
     setHourly(hourlyData.list)
 
-    // FORECAST DAYS
     const forecastData = await getForecast(coords.lat, coords.lon);
-
     setForecastDays(forecastData);
+
+    setSuggestions([]);
   }
 
   // SUGESTÃO DE CIDADES
@@ -69,10 +61,15 @@ function App() {
 
     setCity(value);
 
-    if (value.length >= 2) {
-      const cities = await getCitySuggestions(value);
+    // console.log(`"${value}"`);
 
-      setSuggestions(cities);
+    if (value.length >= 0) {
+      const cities = await getCitySuggestions(value);
+      //console.log(cities)
+
+      if (cities.length > 0) {
+        setSuggestions(cities);
+      }
     } else {
       setSuggestions([]);
     }
