@@ -1,7 +1,7 @@
 .container {
     width: 200px;
     height: 200px;
-    color: black;
+    /* color: black; */
     overflow: hidden;
 }
 
