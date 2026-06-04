@@ -10,7 +10,7 @@ function HourlyForecast({ hourly }) {
             {hourly.slice(0, 6).map((item) => (
                 <div key={item.dt} className={styles.card}>
 
-                    <p>{item.dt_txt.slice(11, 16)}</p>
+                    <p className={styles.hour}>{item.dt_txt.slice(11, 16)}</p>
 
                     <img 
                         className={styles.icon} 
@@ -18,7 +18,7 @@ function HourlyForecast({ hourly }) {
                         alt={item.weather[0].description} 
                     />
 
-                    <p>{Math.round(item.main.temp)}°</p>
+                    <p className={styles.degree}>{Math.round(item.main.temp)}°</p>
 
                 </div>
             ))}

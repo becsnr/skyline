@@ -30,9 +30,17 @@
     border-right: none;
 }
 
+.hour {
+    font-size: .9rem;
+}
+
 img {
     width: 40px;
     justify-content: center;
+}
+
+.degree {
+    font-size: 1.2rem;
 }
 
 /* MOBILE */
@@ -42,5 +50,9 @@ img {
 
         width: 100%;
         /* height: auto; */
+    }
+
+    .hour {
+        font-size: .7rem;
     }
 }
