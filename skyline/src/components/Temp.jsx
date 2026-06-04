@@ -14,10 +14,13 @@ function Temp({ weather }) {
                 <div className={styles.content}>
 
                     <div className={styles.temp}>
-                        <h1> <FaMapMarker /> {weather.name}</h1>
+                        <h1><FaMapMarker /> {weather.name}</h1>
+
+                        <p className={styles.grau}>{Math.round(weather.main.temp)}°</p>
+
                         <p className={styles.description}>{weather.weather[0].description}</p>
-                        <p className={styles.grau}>{Math.round(weather.main.temp)} C°</p>
-                        <p>Sensação térmica: {Math.round(weather.main.feels_like)}°</p>
+
+                        {/* <p className={styles.sensation}>Sensação térmica: {Math.round(weather.main.feels_like)}°</p> */}
                         
                     </div>
 

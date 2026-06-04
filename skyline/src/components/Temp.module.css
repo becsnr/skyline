@@ -45,7 +45,7 @@
 .temp h1 {
     font-size: 1.8rem;
     font-weight: bold;
-    margin: 0 0 4px 0;
+    margin: 0 0 0 0;
 }
 
 .temp h1 svg {
@@ -55,6 +55,7 @@
 
 .description {
     font-size: 1rem;
+    font-weight: bold;
     color: #8e8e8e;
     margin: 0 0 16px 0;
 }
@@ -63,7 +64,7 @@
     font-size: 3.5rem;
     font-weight: 500;
 
-    margin: 0;
+    margin: 20px 0 0 0;
 }
 
 .icon {
@@ -135,7 +136,7 @@
 
     .temp h1 {
         font-size: 1.3rem;
-        margin: 0;
+        margin: 20px 0 20px 0;
     }
 
     .temp h1 svg {
@@ -144,7 +145,7 @@
 
     .grau {
         font-size: 2.8rem;
-        font-weight: bold;
+        /* font-weight: bold; */
         margin: 0;
     }
 
